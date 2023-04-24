@@ -6,7 +6,7 @@ type iprops = {
 }
 const Table:React.FC<iprops> = ({data}) => {
   return (
-    <table>
+    <table className='table-auto border-collaple border border-slate-300'>
         <Thead />
         <Tbody data={data} />
     </table>
