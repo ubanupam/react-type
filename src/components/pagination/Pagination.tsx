@@ -13,20 +13,16 @@ const Pagination: React.FC<Iprops> = (props) => {
   const { data, setPageNo, itemsPerPages, setitemsPerPages } = props;
   const maxPage = [...Array(data.length / itemsPerPages)];
 
-  // console.log(data.length);
-
   const PageChange = (index: number) => {
     setPageNo(index);
   };
   const handlePrev = () => {
-    // if (pageNo > 0) {
     setPageNo((prev): any => {
       if (prev === 1) {
         return prev;
       }
       return prev - 1;
     });
-    // }
   };
   const handleNext = () => {
     setPageNo((prev): any => {
@@ -42,11 +38,10 @@ const Pagination: React.FC<Iprops> = (props) => {
         onClick={handlePrev}
         className="hover:bg-red-400 p-1 text-white cursor-pointer "
       >
-        `&lt;`
+        {"◀️"}
       </span>
       {maxPage.map((i, index): any => {
         return (
-          // <span className="p-2 " key={index}>
           <span
             key={index}
             onClick={() => PageChange(index + 1)}
@@ -54,14 +49,13 @@ const Pagination: React.FC<Iprops> = (props) => {
           >
             {index + 1}
           </span>
-          // </span>
         );
       })}
       <span
         onClick={handleNext}
         className="hover:bg-red-400 p-1 text-white cursor-pointer"
       >
-        `&gt;`
+        {"▶️"}
       </span>
       <PaginationSelectBox setItemsPerPages={setitemsPerPages} />
     </div>
