@@ -1,12 +1,14 @@
 import React from 'react'
 type iprops = {
-    data:string[]
+    data:string[];
+    pageNo:number;
+    itemsPerPages: number;
 }
-const Tbody:React.FC<iprops> = ({data}) => {
+const Trow:React.FC<iprops> = ({ data, pageNo, itemsPerPages }) => {
   return (
-    <tbody>
+    <>
         {
-            data?.map((item:any, itemKey:number)=>{
+            data?.slice(pageNo * itemsPerPages - itemsPerPages, pageNo * itemsPerPages).map((item:any, itemKey:number)=>{
                 return (
                     <tr key={itemKey}  className='even:bg-purple-100 odd:bg-blue-100 h-24 hover:bg-gray-100'>
                         <td className='font-bold pl-2'>{item.id}.</td>
@@ -16,8 +18,8 @@ const Tbody:React.FC<iprops> = ({data}) => {
                 )
             })
         }
-    </tbody>
+    </>
   )
 }
 
-export default Tbody
+export default Trow
