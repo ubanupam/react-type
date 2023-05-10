@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Loading = () => {
+const Loading = (): JSX.Element => {
   return (
-    <div>Loading...</div>
+    <div>
+      <h1 className='flex text-center justify-center text-5xl mt-20'>Loading...</h1>
+    </div>
   )
 }
 
-export default Loading
+export default Loading;
